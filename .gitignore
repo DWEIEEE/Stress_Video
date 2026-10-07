@@ -1,0 +1,42 @@
+# Participant data and generated dataset lists
+data/
+datasets/
+annotations/
+*.csv
+*.xlsx
+*.xls
+
+# Large video and model artifacts
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.webm
+*.gif
+*.pth
+*.pt
+*.ckpt
+weights/
+checkpoints/
+
+# Training outputs and logs
+outputs/
+results_*/
+tb_logs/
+events.out.tfevents.*
+*.log
+
+# Python and notebook artifacts
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.venv/
+venv/
+
+# Editor and operating-system files
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db

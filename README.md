@@ -19,8 +19,6 @@ Research code for movement-level stress classification from dance videos. The pr
 
 Each sample is a movement video labelled with a dancer's self-reported stress level. The EX1 experiments compare 2-class, 3-class, and 10-class stress classification. Splits are made **by participant**, so recordings from the same participant (including frontal and diagonal views) never appear in different splits. The intended train/validation/test proportions are 60% / 20% / 20%, with the final 18 participants reserved for testing.
 
-For EX1, the reported majority-class baselines are 53.4% (2 classes), 40.9% (3 classes), and 23.9% (10 classes). The code does not include participant videos, raw labels, trained checkpoints, or TensorBoard logs.
-
 ## Repository layout
 
 ```text
@@ -46,7 +44,6 @@ cd Stress_Classification_Release
 pip install -r requirements.txt
 ```
 
-VideoMAE's original environment was based on PyTorch 1.x. If you use a recent PyTorch release, test the environment before starting a long training job.
 
 ## Data preparation
 
@@ -65,8 +62,6 @@ python tools/video_preprocessing/Make_ex1_thesis_datafile.py \
   --num_c 2 \
   --outdir /path/to/ex1_lists
 ```
-
-Use `--num_c 2`, `--num_c 3`, or `--num_c 10` for the desired label space. `movementClip.py`, `main.py`, and `main_2angle.py` are optional utilities for extracting movement clips before list generation. The preprocessing utilities expect your own annotation layout; inspect their command-line help before use.
 
 ## Fine-tuning EX1
 
@@ -111,6 +106,3 @@ The main model code is adapted from [VideoMAE](https://github.com/MCG-NJU/VideoM
 
 The video workflow can consume person-cropped videos produced using [YOLOv7](https://github.com/WongKinYiu/yolov7); YOLOv7 code and weights are not bundled here. Please follow each upstream project's license and cite the relevant work when publishing results.
 
-## Before pushing to GitHub
-
-The included `.gitignore` excludes participant data, videos, model weights, generated results, notebooks checkpoints, and caches. Review `git status` before pushing to ensure no sensitive metadata or identifiable media is staged.
